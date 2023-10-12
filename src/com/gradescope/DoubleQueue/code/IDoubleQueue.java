@@ -47,9 +47,9 @@ public interface IDoubleQueue<T>
      *
      * Returns the number of items in the queue.
      *
-     * @return The item at the 
+     * @return The item at the front of the list
      * @pre None.
-     * @post The entire queue object is unchanged.
+     * @post The first element in the queue is only returned. The entire queue object is unchanged.
      */
     default T peek() {
         T temp = dequeue();
