@@ -18,23 +18,19 @@ package com.gradescope.DoubleQueue.code;
  *@constraints: The queue is initialized and is empty
  *
  */
-public interface IDoubleQueue
+public interface IDoubleQueue<T>
 {
 
     //This function's contracts are in the individual classes
-    public void enqueue(Double val);
+    public void enqueue(T val);
 
     /**dequeueContract
-     *
-     *
-     *@return The first element in the queue
-     *
-     *@pre The queue is not empty
-     *
-     *@post The first element in the queue is removed and returned
-     *
-     */
-    public Double dequeue();
+    *
+    *@return The first element in the queue
+    *@pre The queue is not empty
+    *@post The first element in the queue is removed and returned
+    */
+    public T dequeue();
 
     /**lengthContract
      *

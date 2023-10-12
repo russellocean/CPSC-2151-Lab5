@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * @corresponds to LQueue as the underlying data structure for the Double queue.
  *
  */
-public class ListDoubleQueue implements IDoubleQueue {
+public class ListDoubleQueue<T> implements IDoubleQueue<T> {
     private ArrayList<Double> LQueue;
     private int maxListSize;
 
