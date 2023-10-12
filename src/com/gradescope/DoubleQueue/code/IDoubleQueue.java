@@ -9,6 +9,7 @@
 package com.gradescope.DoubleQueue.code;
 
 /**IDoubleQueueContract
+ * @param <T> the Type tha the queue works with.
  *
  *
  *@initialization Ensures: self != null
@@ -41,6 +42,23 @@ public interface IDoubleQueue<T>
      * @post result = number of items in the queue.
      */
     public int length();
+
+    /**peekContract
+     *
+     * Returns the number of items in the queue.
+     *
+     * @return The item at the 
+     * @pre None.
+     * @post The entire queue object is unchanged.
+     */
+    default T peek() {
+        T temp = dequeue();
+        enqueue(temp);
+        for (int i = 0; i < length() - 1;i++) {
+            enqueue(dequeue());
+        }
+        return temp;
+    }
 
     /**toStringContract
      *
