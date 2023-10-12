@@ -13,15 +13,15 @@ import java.util.ArrayList;
 /**
  * ListDoubleQueueContract
  *
- * ArrayList implementation for the Double queue.
+ * ArrayList implementation for the generic queue.
  *
  * @invariant LQueue != null
  *
- * @corresponds to LQueue as the underlying data structure for the Double queue.
+ * @corresponds to LQueue as the underlying data structure for the generic queue.
  *
  */
 public class ListDoubleQueue<T> implements IDoubleQueue<T> {
-    private ArrayList<Double> LQueue;
+    private ArrayList<T> LQueue;
     private int maxListSize;
 
     /**
@@ -36,7 +36,7 @@ public class ListDoubleQueue<T> implements IDoubleQueue<T> {
      *
      */
     public ListDoubleQueue(int maxSize) {
-        this.LQueue = new ArrayList<Double>();
+        this.LQueue = new ArrayList<T>();
         this.maxListSize = maxSize;
     }
 
@@ -46,7 +46,7 @@ public class ListDoubleQueue<T> implements IDoubleQueue<T> {
      * Enqueue adds a value to the queue. If the queue is full, it replaces the last
      * value.
      *
-     * @param val The Double to be added.
+     * @param val The item to be added.
      *
      * @pre val != null
      * @post If |LQueue| < maxListSize, val is added to the end of LQueue.
@@ -54,7 +54,7 @@ public class ListDoubleQueue<T> implements IDoubleQueue<T> {
      *
      */
     @Override
-    public void enqueue(Double val) {
+    public void enqueue(T val) {
         if (LQueue.size() == this.maxListSize)
             LQueue.set(this.maxListSize - 1, val);
         else
@@ -65,7 +65,7 @@ public class ListDoubleQueue<T> implements IDoubleQueue<T> {
     // need to add them.
 
     @Override
-    public Double dequeue() {
+    public T dequeue() {
         return LQueue.remove(0);
     }
 
@@ -76,7 +76,7 @@ public class ListDoubleQueue<T> implements IDoubleQueue<T> {
 
     public String toString() {
         String ret = "";
-        for (Double d : LQueue) {
+        for (T d : LQueue) {
             ret += ("[" + d + "] ");
         }
         return ret;
